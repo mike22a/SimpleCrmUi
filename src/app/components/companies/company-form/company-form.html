@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+
+  <form class="form-container" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Company Name</label>
+      <input id="name" type="text" formControlName="name">
+      <div *ngIf="companyForm.get('name')?.invalid && companyForm.get('name')?.touched" class="error-message">
+        Company name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="industry">Industry</label>
+      <input id="industry" type="text" formControlName="industry">
+    </div>
+
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input id="website" type="text" formControlName="website">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary" [disabled]="companyForm.invalid">Save Company</button>
+      <a class="btn-secondary" routerLink="/companies">Cancel</a>
+    </div>
+  </form>
+</div>

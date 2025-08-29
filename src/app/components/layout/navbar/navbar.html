@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/contacts">SimpleCRM</a>
+  </div>
+ <div class="navbar-links">
+    <a routerLink="/contacts" routerLinkActive="active-link">Contacts</a>
+    <a routerLink="/companies" routerLinkActive="active-link">Companies</a>
+    <a routerLink="/deals" routerLinkActive="active-link">Deals</a> 
+  </div>
+  <div class="navbar-actions">
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>

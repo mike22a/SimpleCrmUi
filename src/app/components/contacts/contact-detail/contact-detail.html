@@ -1,0 +1,29 @@
+<div class="container">
+  <div *ngIf="contact; else loading">
+    <div class="header">
+      <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+      <div>
+        <a class="btn-primary" [routerLink]="['/contacts', contact.id, 'edit']">Edit</a>
+        <button class="btn-danger" (click)="deleteContact()">Delete</button>
+      </div>
+    </div>
+
+    <div class="details-card">
+      <h3>Contact Information</h3>
+      <div class="detail-item">
+        <span class="label">Email:</span>
+        <span class="value">{{ contact.email }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Phone:</span>
+        <span class="value">{{ contact.phoneNumber || 'N/A' }}</span>
+      </div>
+    </div>
+    
+    <a routerLink="/contacts" class="back-link">← Back to Contact List</a>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading contact details...</p>
+  </ng-template>
+</div>

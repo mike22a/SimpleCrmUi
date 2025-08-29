@@ -1,0 +1,29 @@
+<div class="container">
+  <div *ngIf="company; else loading">
+    <div class="header">
+      <h1>{{ company.name }}</h1>
+      <div>
+        <a class="btn-primary" [routerLink]="['/companies', company.id, 'edit']">Edit</a>
+        <button class="btn-danger" (click)="deleteCompany()">Delete</button>
+      </div>
+    </div>
+
+    <div class="details-card">
+      <h3>Company Information</h3>
+      <div class="detail-item">
+        <span class="label">Industry:</span>
+        <span class="value">{{ company.industry || 'N/A' }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Website:</span>
+        <span class="value"><a [href]="company.website" target="_blank">{{ company.website || 'N/A' }}</a></span>
+      </div>
+    </div>
+    
+    <a routerLink="/companies" class="back-link">← Back to Company List</a>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading company details...</p>
+  </ng-template>
+</div>

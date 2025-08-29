@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="header">
+    <h1>Contacts</h1>
+    <div>
+      <a class="btn-primary" [routerLink]="['/contacts/new']">Add New Contact</a>
+    </div>
+  </div>
+
+  <table *ngIf="contacts.length > 0; else noContacts">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phoneNumber }}</td>
+        <td>
+          <a class="btn-secondary" [routerLink]="['/contacts', contact.id]">View</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noContacts>
+    <p>No contacts found. Why not add one?</p>
+  </ng-template>
+</div>
