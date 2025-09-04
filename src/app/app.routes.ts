@@ -10,6 +10,7 @@ import { CompanyDetail } from './components/companies/company-detail/company-det
 import { DealList } from './components/deals/deal-list/deal-list';
 import { DealForm } from './components/deals/deal-form/deal-form';
 import { DealDetail } from './components/deals/deal-detail/deal-detail';
+import { Dashboard } from './components/dashboard/dashboard';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -53,6 +54,8 @@ export const routes: Routes = [
   { path: 'deals/:id', component: DealDetail, canActivate: [authGuard] },
   { path: 'deals/:id/edit', component: DealForm, canActivate: [authGuard] },
 
-  { path: '', redirectTo: '/contacts', pathMatch: 'full' },
-  { path: '**', redirectTo: '/contacts' },
+  { path: 'dashboard', component: Dashboard, canActivate: [authGuard] },
+  
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, 
+  { path: '**', redirectTo: '/dashboard' } 
 ];

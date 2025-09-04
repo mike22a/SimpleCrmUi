@@ -140,5 +140,10 @@ export class Api {
   
   getDealStages(): Observable<string[]> {
   return this.http.get<string[]>(`${this.apiUrl}/deals/stages`);
-}
+  }
+
+  // Inside ApiService
+  getDashboardStats(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dashboard/stats`);
+  }
 }

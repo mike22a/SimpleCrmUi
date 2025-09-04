@@ -15,6 +15,13 @@
   text-decoration: none;
 }
 
+.navbar-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .navbar-links a {
   font-weight: 500;
   text-decoration: none;

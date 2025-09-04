@@ -1,0 +1,25 @@
+<div class="chart-container">
+  <h3>Deals Pipeline</h3>
+  
+  <div *ngIf="stats; else noChartData">
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="stats.dealsByStage"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel">
+    </ngx-charts-bar-vertical>
+  </div>
+  
+  <ng-template #noChartData>
+    <div class="no-data-message">
+      <p>No deal data available to display.</p>
+    </div>
+  </ng-template>
+</div>

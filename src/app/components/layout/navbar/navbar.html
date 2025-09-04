@@ -1,13 +1,17 @@
 <nav class="navbar">
   <div class="navbar-brand">
-    <a routerLink="/contacts">SimpleCRM</a>
+    <a routerLink="/dashboard">SimpleCRM</a>
   </div>
- <div class="navbar-links">
-    <a routerLink="/contacts" routerLinkActive="active-link">Contacts</a>
-    <a routerLink="/companies" routerLinkActive="active-link">Companies</a>
-    <a routerLink="/deals" routerLinkActive="active-link">Deals</a> 
-  </div>
-  <div class="navbar-actions">
-    <button (click)="logout()">Logout</button>
+  
+  <div *ngIf="authService.isLoggedIn()" class="navbar-content">
+    <div class="navbar-links">
+      <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+      <a routerLink="/contacts" routerLinkActive="active-link">Contacts</a>
+      <a routerLink="/companies" routerLinkActive="active-link">Companies</a>
+      <a routerLink="/deals" routerLinkActive="active-link">Deals</a>
+    </div>
+    <div class="navbar-actions">
+      <button (click)="logout()">Logout</button>
+    </div>
   </div>
 </nav>
