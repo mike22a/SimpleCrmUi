@@ -1,59 +1,56 @@
-# CrmUi
+# **Simple CRM \- Frontend UI**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+This project is a modern single-page application (SPA) built with Angular. It provides a clean, responsive, and user-friendly interface for the Simple CRM backend, allowing users to manage their business data effectively.
 
-## Development server
+## **✨ Features**
 
-To start a local development server, run:
+* **Component-Based Architecture:** A well-organized structure with components for each feature (Contacts, Companies, Deals, Dashboard).  
+* **Secure JWT Handling:** Implements a login page, an auth guard to protect routes, and an HTTP interceptor to automatically attach the authentication token to all API requests.  
+* **Reactive Forms:** Uses Angular's powerful Reactive Forms for robust data entry and validation.  
+* **Dynamic Routing:** A full routing module for navigating between different views.  
+* **User-Friendly Notifications:** Uses ngx-toastr to provide clear feedback for user actions.  
+* **Dashboard View:** A central dashboard with metric cards and a custom bar chart to visualize data.  
+* **Consistent UI/UX:** A global stylesheet and shared layout classes provide a consistent and professional look and feel.
 
-```bash
-ng serve
-```
+## **🛠️ Tech Stack**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* **Framework:** Angular (v17+)  
+* **Language:** TypeScript  
+* **Styling:** CSS3  
+* **State Management:** Services with RxJS  
+* **UI Libraries:** ngx-toastr for notifications
 
-## Code scaffolding
+## **✅ Prerequisites**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Before you begin, ensure you have the following installed on your machine:
 
-```bash
-ng generate component component-name
-```
+* **Node.js:** LTS version (18.x or later is recommended). [Download Node.js](https://nodejs.org/)  
+* **Angular CLI:** After installing Node.js, run npm install \-g @angular/cli in your terminal.  
+* **The Simple CRM Backend API** must be running for the UI to function.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## **🚀 Setup and Installation**
 
-```bash
-ng generate --help
-```
+1. **Clone the repository:**  
+    ```git clone \<your-repo-url\>```
 
-## Building
+2. **Navigate to the project folder:**  
+   ```cd crm-ui```
 
-To build the project run:
+3. **Install Dependencies:**  
+   ```npm install```
 
-```bash
-ng build
-```
+4. **Configure the API URL:**  
+   Open the file src/environments/environment.ts and ensure the apiUrl property points to the URL where your backend API is running.  
+   ```
+   export const environment \= {  
+     production: false,  
+     apiUrl: 'https://localhost:7123/api' // Your .NET API's URL  
+   };
+   ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+5. **Run the Application:**  
+   ```
+   ng serve \--open
+   ```
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   Your browser will automatically open to http://localhost:4200, and you will be redirected to the login page. You can log in with the default super admin credentials (admin@example.com).
