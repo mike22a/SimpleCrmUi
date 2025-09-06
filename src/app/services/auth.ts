@@ -2,14 +2,13 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Auth {
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = import.meta.env.VITE_API_URL;
   private readonly TOKEN_KEY = 'crm_auth_token';
   private isBrowser: boolean;
 
