@@ -73,7 +73,9 @@ export class Api {
   // private readonly apiUrl = environment.apiUrl; 
   private readonly apiUrl = import.meta.env.VITE_API_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log('API URL being used:', this.apiUrl);
+   }
 
   // Contacts Methods
   getContacts(): Observable<ContactDto[]> {

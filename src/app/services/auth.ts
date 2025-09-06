@@ -18,6 +18,7 @@ export class Auth {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    console.log('API URL being used:', this.apiUrl);
   }
 
   login(credentials: any): Observable<any> {
