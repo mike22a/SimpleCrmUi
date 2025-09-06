@@ -32,7 +32,7 @@ export class Login {
         next: (response) => {
           console.log("Login successful. Raw JWT received:");
           console.log(response.token); 
-          this.router.navigate(['/contacts']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           this.errorMessage = 'Login failed. Please check your credentials.';
