@@ -29,7 +29,9 @@ export class Login {
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => {
+        next: (response) => {
+          console.log("Login successful. Raw JWT received:");
+          console.log(response.token); 
           this.router.navigate(['/contacts']);
         },
         error: (err) => {
