@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Auth {
-  private readonly apiUrl = import.meta.env.VITE_API_URL;
+  private readonly apiUrl = environment.apiUrl; 
+  // private readonly apiUrl = import.meta.env.VITE_API_URL;
   private readonly TOKEN_KEY = 'crm_auth_token';
   private isBrowser: boolean;
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 // Contact dto
 export interface ContactDto {
@@ -70,8 +71,8 @@ export interface UpdateDealCommand extends CreateDealCommand {
   providedIn: 'root'
 })
 export class Api {
-  // private readonly apiUrl = environment.apiUrl; 
-  private readonly apiUrl = import.meta.env.VITE_API_URL;
+  private readonly apiUrl = environment.apiUrl; 
+  // private readonly apiUrl = import.meta.env.VITE_API_URL;
 
   constructor(private http: HttpClient) {
     console.log('API URL being used:', this.apiUrl);
