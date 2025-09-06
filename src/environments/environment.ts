@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://YOUR-FUTURE-API-URL.repl.co/api' // Placeholder URL
+  production: false,
+  apiUrl: 'https://localhost:7143/api'
 };

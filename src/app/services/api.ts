@@ -71,7 +71,8 @@ export interface UpdateDealCommand extends CreateDealCommand {
   providedIn: 'root'
 })
 export class Api {
-  private readonly apiUrl = environment.apiUrl; 
+  // private readonly apiUrl = environment.apiUrl; 
+  private readonly apiUrl = import.meta.env.VITE_API_URL;
 
   constructor(private http: HttpClient) { }
 
