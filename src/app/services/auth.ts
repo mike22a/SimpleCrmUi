@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../environments/environment';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,25 @@ export class Auth {
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    if (!token) {
+      return false; // No token exists
+    }
+
+    try {
+      const decoded: { exp: number } = jwtDecode(token);
+      
+      // The 'exp' claim is in SECONDS. Date.now() is in MILLISECONDS.
+      // We must convert the 'exp' to milliseconds to compare them correctly.
+      const expirationDate = decoded.exp * 1000;
+      const now = Date.now();
+
+      return expirationDate > now; // Returns true if the token is not expired
+      
+    } catch (error) {
+      // If the token is malformed, it's invalid.
+      console.error("Failed to decode JWT", error);
+      return false;
+    }
   }
 }
